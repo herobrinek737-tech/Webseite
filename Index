@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wirtschaftsstandort Europa</title>
+    
+    <!-- Google Fonts: Inter (ähnelt San Francisco/Apple System Font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Konfiguration für den spezifischen Premium-Look -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: {
+                            bg: '#f5f5f7',
+                            card: '#ffffff',
+                            dark: '#1d1d1f',
+                            gray: '#86868b',
+                            blue: '#0066cc'
+                        }
+                    },
+                    transitionTimingFunction: {
+                        'apple-ease': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Eigene Styles für flüssige Animationen */
+        body {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Scroll Reveal Klassen */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Akkordeon Animation */
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .accordion-content > div {
+            overflow: hidden;
+        }
+        .accordion-item.open .accordion-content {
+            grid-template-rows: 1fr;
+        }
+        .accordion-item.open .icon-cross {
+            transform: rotate(45deg);
+        }
+        .icon-cross {
+            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+    </style>
+</head>
+<body class="selection:bg-apple-blue selection:text-white">
+
+    <!-- HERO SECTION -->
+    <header class="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 reveal">
+        <h2 class="text-apple-gray font-semibold tracking-widest uppercase text-xs sm:text-sm mb-4">Analyse & Perspektiven</h2>
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter text-apple-dark max-w-5xl leading-tight mb-8">
+            Wie fit ist die Wirtschaft in Europa?
+        </h1>
+        <p class="text-xl sm:text-2xl text-apple-gray font-medium max-w-3xl leading-relaxed">
+            Eine Analyse der aktuellen Herausforderungen, Chancen und der globalen Wettbewerbsfähigkeit unseres Kontinents.
+        </p>
+    </header>
+
+    <!-- STATUS QUO (DATA) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto reveal">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-apple-dark mb-4">Der Status Quo.</h2>
+            <p class="text-xl text-apple-gray font-medium">Zahlen, die die aktuelle Lage prägen.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- DE -->
+            <div class="bg-apple-card rounded-[2rem] p-8 shadow-sm flex flex-col justify-between hover:scale-[1.02] transition-transform duration-500">
+                <div>
+                    <h3 class="text-xl font-semibold text-apple-dark mb-1">Deutschland</h3>
+                    <p class="text-apple-gray text-sm mb-6">Schwaches Wachstum</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-apple-dark tracking-tight mb-2">0,5 - 1%</div>
+                    <p class="text-sm font-medium text-apple-gray">Wachstum</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between text-sm">
+                        <span class="text-apple-gray">Neuverschuldung</span>
+                        <span class="font-semibold text-apple-dark">1,5%</span>
+                    </div>
+                    <div class="mt-2 flex justify-between text-sm">
+                        <span class="text-apple-gray">Arbeitslosigkeit</span>
+                        <span class="font-semibold text-apple-dark">3%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FR / IT -->
+            <div class="bg-apple-card rounded-[2rem] p-8 shadow-sm flex flex-col justify-between hover:scale-[1.02] transition-transform duration-500">
+                <div>
+                    <h3 class="text-xl font-semibold text-apple-dark mb-1">Frankreich & Italien</h3>
+                    <p class="text-apple-gray text-sm mb-6">Hohe Staatsausgaben</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-apple-dark tracking-tight mb-2">4,5 - 5%</div>
+                    <p class="text-sm font-medium text-apple-gray">Neuverschuldung</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-sm text-apple-gray">Wachstum ähnlich schwach wie in Deutschland.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ES -->
+            <div class="bg-apple-card rounded-[2rem] p-8 shadow-sm flex flex-col justify-between hover:scale-[1.02] transition-transform duration-500">
+                <div>
+                    <h3 class="text-xl font-semibold text-apple-dark mb-1">Spanien</h3>
+                    <p class="text-apple-gray text-sm mb-6">Tourismus-Boost</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-apple-dark tracking-tight mb-2">~2,1%</div>
+                    <p class="text-sm font-medium text-apple-gray">Wachstum</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between text-sm">
+                        <span class="text-apple-gray">Arbeitslosigkeit</span>
+                        <span class="font-semibold text-apple-dark">12%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EU -->
+            <div class="bg-apple-card rounded-[2rem] p-8 shadow-sm flex flex-col justify-between hover:scale-[1.02] transition-transform duration-500 bg-gradient-to-br from-gray-900 to-black text-white">
+                <div>
+                    <h3 class="text-xl font-semibold mb-1">EU-Schnitt</h3>
+                    <p class="text-gray-400 text-sm mb-6">Gesamtübersicht</p>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold tracking-tight mb-2">~6%</div>
+                    <p class="text-sm font-medium text-gray-400">Arbeitslosigkeit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZENTRALE PROBLEME -->
+    <section class="py-24 px-6 max-w-7xl mx-auto reveal">
+        <div class="mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-apple-dark mb-4">Zentrale Probleme.</h2>
+            <p class="text-xl text-apple-gray font-medium max-w-2xl">Herausforderungen, die die europäische Wettbewerbsfähigkeit auf die Probe stellen.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-apple-card p-10 sm:p-12 rounded-[2rem] shadow-sm">
+                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-apple-dark mb-3">Energiekrise</h3>
+                <p class="text-apple-gray leading-relaxed text-lg">Das Ende des günstigen russischen Gases trifft besonders den Industriestandort Deutschland hart und treibt die Produktionskosten in die Höhe.</p>
+            </div>
+
+            <div class="bg-apple-card p-10 sm:p-12 rounded-[2rem] shadow-sm">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-apple-dark mb-3">Transformation</h3>
+                <p class="text-apple-gray leading-relaxed text-lg">Hohe Kosten für die Erreichung der Klimaneutralität (Green Deal) und den radikalen Umbau der klassischen Industrie.</p>
+            </div>
+
+            <div class="bg-apple-card p-10 sm:p-12 rounded-[2rem] shadow-sm">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-apple-dark mb-3">Technologie-Gap</h3>
+                <p class="text-apple-gray leading-relaxed text-lg">Massiver technologischer Rückstand bei Künstlicher Intelligenz und allgemeiner Digitalisierung gegenüber den USA und China.</p>
+            </div>
+
+            <div class="bg-apple-card p-10 sm:p-12 rounded-[2rem] shadow-sm">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-apple-dark mb-3">Geopolitik</h3>
+                <p class="text-apple-gray leading-relaxed text-lg">Europa droht zum "Spielball" zu werden – gefangen zwischen den massiven Subventionen der USA (Inflation Reduction Act) und der chinesischen E-Auto-Dominanz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LÖSUNGEN (DARK SECTION) -->
+    <section class="py-32 px-6 bg-black text-white mt-12 reveal">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl sm:text-6xl font-bold tracking-tight mb-6">Lösungen & Strategien.</h2>
+                <p class="text-xl sm:text-2xl text-gray-400 font-medium max-w-3xl mx-auto">Wie Europa den Anschluss behält und den Binnenmarkt der Zukunft gestaltet.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Lösung 1 -->
+                <div class="border-t border-gray-800 pt-6">
+                    <div class="text-white font-bold text-xl mb-4">01. Digitaler Binnenmarkt</div>
+                    <p class="text-gray-400 leading-relaxed">Abbau von nationalen Grenzen im Online-Handel und bei digitalen Dienstleistungen, um Skaleneffekte für europäische Unternehmen zu ermöglichen.</p>
+                </div>
+                <!-- Lösung 2 -->
+                <div class="border-t border-gray-800 pt-6">
+                    <div class="text-white font-bold text-xl mb-4">02. Kapitalmarktunion</div>
+                    <p class="text-gray-400 leading-relaxed">Bessere und unbürokratischere Finanzierungschancen für Startups, damit Innovationen nicht aus Mangel an Wagniskapital in die USA abwandern.</p>
+                </div>
+                <!-- Lösung 3 -->
+                <div class="border-t border-gray-800 pt-6">
+                    <div class="text-white font-bold text-xl mb-4">03. Energie-Vernetzung</div>
+                    <p class="text-gray-400 leading-relaxed">Konsequenter Ausbau der grenzüberschreitenden Stromnetze für einen echten europäischen Energiemarkt und mehr Versorgungssicherheit.</p>
+                </div>
+                <!-- Lösung 4 -->
+                <div class="border-t border-gray-800 pt-6">
+                    <div class="text-white font-bold text-xl mb-4">04. Letta-Bericht</div>
+                    <p class="text-gray-400 leading-relaxed">Strategischer Fokus auf die europäische Souveränität, insbesondere in den Sektoren Verteidigungsindustrie, Energie und Telekommunikation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERAKTIVES LERNEN (QUIZ / ACCORDION) -->
+    <section class="py-24 px-6 max-w-4xl mx-auto reveal">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-apple-dark mb-4">Wissen überprüfen.</h2>
+            <p class="text-xl text-apple-gray font-medium">Interaktive Aufgaben zur Dokumentation.</p>
+        </div>
+
+        <div class="space-y-2">
+            <!-- Frage 1 -->
+            <div class="accordion-item bg-apple-card rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-gray-100" onclick="toggleAccordion(this)">
+                <div class="p-6 flex justify-between items-center">
+                    <h3 class="text-lg sm:text-xl font-semibold text-apple-dark">1. Nenne zentrale Probleme der EU-Wirtschaft.</h3>
+                    <div class="icon-cross text-2xl text-apple-gray font-light">+</div>
+                </div>
+                <div class="accordion-content bg-gray-50">
+                    <div class="px-6 pb-6 text-apple-gray text-lg leading-relaxed">
+                        Zu den Hauptproblemen zählen hohe Energiepreise (durch den Wegfall russischen Gases), überbordende Bürokratie und ein massiver technologischer Rückstand (z.B. bei KI) im Vergleich zu den USA und China.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frage 2 -->
+            <div class="accordion-item bg-apple-card rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-gray-100" onclick="toggleAccordion(this)">
+                <div class="p-6 flex justify-between items-center">
+                    <h3 class="text-lg sm:text-xl font-semibold text-apple-dark">2. Warum ist Zusammenarbeit in der EU wichtig?</h3>
+                    <div class="icon-cross text-2xl text-apple-gray font-light">+</div>
+                </div>
+                <div class="accordion-content bg-gray-50">
+                    <div class="px-6 pb-6 text-apple-gray text-lg leading-relaxed">
+                        Nur durch Zusammenarbeit können Skaleneffekte genutzt werden. Ein gemeinsamer Energiemarkt, eine Kapitalmarktunion und das Auftreten als eine Einheit erhöhen das politische und wirtschaftliche Gewicht auf globaler Ebene immens.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frage 3 -->
+            <div class="accordion-item bg-apple-card rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-gray-100" onclick="toggleAccordion(this)">
+                <div class="p-6 flex justify-between items-center">
+                    <h3 class="text-lg sm:text-xl font-semibold text-apple-dark">3. Wie entstehen wirtschaftliche Unterschiede in Europa?</h3>
+                    <div class="icon-cross text-2xl text-apple-gray font-light">+</div>
+                </div>
+                <div class="accordion-content bg-gray-50">
+                    <div class="px-6 pb-6 text-apple-gray text-lg leading-relaxed">
+                        Die Unterschiede resultieren aus der jeweiligen Industriestruktur (z.B. viel energieintensive Industrie in DE), der geografischen Lage (z.B. Tourismus/Solarenergie in Spanien) sowie unterschiedlichen nationalen Fiskalpolitiken und EU-Förderungen.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frage 4 -->
+            <div class="accordion-item bg-apple-card rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-gray-100" onclick="toggleAccordion(this)">
+                <div class="p-6 flex justify-between items-center">
+                    <h3 class="text-lg sm:text-xl font-semibold text-apple-dark">4. Was ist ein gutes Beispiel für den wirtschaftlichen Wandel?</h3>
+                    <div class="icon-cross text-2xl text-apple-gray font-light">+</div>
+                </div>
+                <div class="accordion-content bg-gray-50">
+                    <div class="px-6 pb-6 text-apple-gray text-lg leading-relaxed">
+                        Die Automobilindustrie. Sie durchläuft einen radikalen Umstieg vom Verbrennungsmotor auf die E-Mobilität und steht dabei massiv unter Druck durch stark subventionierte chinesische Konkurrenz auf dem Weltmarkt.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frage 5 -->
+            <div class="accordion-item bg-apple-card rounded-2xl overflow-hidden shadow-sm cursor-pointer border border-gray-100" onclick="toggleAccordion(this)">
+                <div class="p-6 flex justify-between items-center">
+                    <h3 class="text-lg sm:text-xl font-semibold text-apple-dark">5. Wie lässt sich die Gesamtlage einschätzen?</h3>
+                    <div class="icon-cross text-2xl text-apple-gray font-light">+</div>
+                </div>
+                <div class="accordion-content bg-gray-50">
+                    <div class="px-6 pb-6 text-apple-gray text-lg leading-relaxed">
+                        Die Lage ist kritisch, da das Wachstum stagniert und die geopolitischen Herausforderungen immens sind. Europa ist jedoch reformfähig; ein konsequenter Ausbau des Binnenmarktes und strategische Investitionen können die Wettbewerbsfähigkeit wiederherstellen.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAZIT & FOOTER -->
+    <footer class="py-24 px-6 border-t border-gray-200 mt-12 text-center reveal">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-2xl sm:text-3xl font-bold text-apple-dark mb-6 tracking-tight">Fazit</h3>
+            <p class="text-xl text-apple-gray leading-relaxed mb-12">
+                Die europäische Wirtschaft steht am Scheideweg. Nur durch eine tiefere Integration, den Abbau von Bürokratie und massive Investitionen in Zukunftstechnologien kann sich Europa als eigenständiger Player zwischen den USA und China behaupten.
+            </p>
+            <p class="text-sm text-gray-400">
+                Erstellt auf Basis der Tagesschau-Dokumentation "Wie fit ist die Wirtschaft in Europa?"
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERAKTIVITÄT & ANIMATIONEN (Vanilla JS) -->
+    <script>
+        // Akkordeon Logik
+        function toggleAccordion(element) {
+            // Optional: Andere Akkordeons schließen (für exklusives Öffnen)
+            // document.querySelectorAll('.accordion-item').forEach(item => {
+            //     if(item !== element) item.classList.remove('open');
+            // });
+            
+            element.classList.toggle('open');
+        }
+
+        // Scroll Reveal Logik (Fade-in bei Scroll)
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".reveal");
+
+            const revealOptions = {
+                threshold: 0.15, // Löst aus, wenn 15% des Elements sichtbar sind
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(
+                entries,
+                observer
+            ) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target); // Nur einmal animieren
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
